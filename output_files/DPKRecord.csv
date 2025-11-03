@@ -1,0 +1,2 @@
+﻿Id,PPID,SerialNumber,Model,PN,Status,InUseDays,CorruptedAttempts,LastUsedTime,Notes,CreateTime,UpdateTime,CreateUser,UpdateUser,IsDeleted
+2,PPID-20251103175316,SN03175316,DELL,JN38V,available,0,0,,创建时间: 2025-11-03 17:53:16,2025-11-03T17:53:16.083000,2025-11-03T17:53:16.083000,admin,,False
