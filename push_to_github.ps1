@@ -5,7 +5,7 @@ $GITHUB_REPO_URL = "YOUR_GITHUB_REPO_URL"
 
 if ($GITHUB_REPO_URL -eq "YOUR_GITHUB_REPO_URL") {
     Write-Host "请先设置 `$GITHUB_REPO_URL 变量为你的 GitHub 仓库地址" -ForegroundColor Red
-    Write-Host "例如: https://github.com/yourusername/EasyPPID-ControlSystem.git" -ForegroundColor Yellow
+    Write-Host "例如: https://github.com/yourusername/TT_PPID_CS.git" -ForegroundColor Yellow
     exit 1
 }
 

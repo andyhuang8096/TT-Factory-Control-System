@@ -43,7 +43,7 @@ class LoginDialog(QDialog):
         layout.setSpacing(15)
         
         # 标题
-        title_label = QLabel("EasyPPID 数据库管理系统")
+        title_label = QLabel("TT_PPID_CS 数据库管理系统")
         title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title_label.setStyleSheet("font-size: 16px; font-weight: bold;")
         layout.addWidget(title_label)

@@ -25,7 +25,7 @@ def main() -> int:
     
     # 创建 Qt 应用
     app = QApplication(sys.argv)
-    app.setApplicationName("EasyPPID 数据库管理系统")
+    app.setApplicationName("TT_PPID_CS 数据库管理系统")
     app.setOrganizationName("TG Electronic")
     
     # 加载配置

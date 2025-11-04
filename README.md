@@ -1,4 +1,4 @@
-# EasyPPID 数据库管理系统
+# TT_PPID_CS 数据库管理系统
 
 ## 项目简介
 
@@ -97,7 +97,7 @@ python src/main.py
 ## 项目结构
 
 ```
-EasyPPID-ControlSystem/
+TT_PPID_CS/
 ├── src/                    # 源代码
 │   ├── core/              # 核心模块
 │   │   ├── database/     # 数据库连接和模型

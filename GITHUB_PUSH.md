@@ -28,6 +28,6 @@ git push -u origin main
 
 如果已安装 GitHub CLI：
 ```bash
-gh repo create EasyPPID-ControlSystem --public --source=. --remote=origin --push
+gh repo create TT_PPID_CS --public --source=. --remote=origin --push
 ```
 
