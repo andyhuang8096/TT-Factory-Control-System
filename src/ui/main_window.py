@@ -47,7 +47,7 @@ class MainWindow(QMainWindow):
         self.current_table_name: Optional[str] = None
         
         # 设置窗口属性
-        self.setWindowTitle("EasyPPID 数据库管理系统")
+        self.setWindowTitle("TT_PPID_CS 数据库管理系统")
         self.setGeometry(100, 100, 1200, 800)
         
         # 创建中央部件
@@ -499,7 +499,7 @@ class MainWindow(QMainWindow):
         QMessageBox.about(
             self,
             "关于",
-            "EasyPPID 数据库管理系统\n\n"
+            "TT_PPID_CS 数据库管理系统\n\n"
             "版本: 1.0.0\n"
             "基于 Python 和 PyQt6 开发"
         )

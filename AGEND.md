@@ -1,4 +1,4 @@
-# EasyPPID 数据库管理系统 - Agent 开发指南
+# TT_PPID_CS 数据库管理系统 - Agent 开发指南
 
 ## Repository Guidelines
 
