@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8lKh+j9hVBE=",
+  "success": true,
+  "projectFilePath": "E:\\OneDrive - TG Electronic\\Repositories\\TT-Factory-Control-System\\production\\src\\TT_PPID_CS.Infrastructure\\TT_PPID_CS.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Andy\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\10.0.1\\microsoft.entityframeworkcore.tools.10.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
