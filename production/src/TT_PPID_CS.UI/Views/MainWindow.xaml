@@ -1,0 +1,68 @@
+﻿<Window x:Class="TT_PPID_CS.UI.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Factory Control System - 生产版" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    
+    <md:DialogHost Identifier="MainDialogHost">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Toolbar -->
+            <md:ColorZone Mode="PrimaryMid" Padding="16">
+                <DockPanel>
+                    <TextBlock VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Text="TT_PPID_CS 系统"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="刷新" Margin="5,0"/>
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="添加" Margin="5,0"/>
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="导入" Margin="5,0"/>
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="备份" Margin="5,0"/>
+                    </StackPanel>
+                </DockPanel>
+            </md:ColorZone>
+            
+            <!-- Content -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Sidebar -->
+                <Border BorderBrush="#EEEEEE" BorderThickness="0,0,1,0">
+                    <ListBox Margin="0,10">
+                        <ListBoxItem Content="PPID 记录" IsSelected="True"/>
+                        <ListBoxItem Content="用户管理"/>
+                        <ListBoxItem Content="导入日志"/>
+                        <ListBoxItem Content="备份管理"/>
+                        <ListBoxItem Content="审计详情"/>
+                    </ListBox>
+                </Border>
+                
+                <!-- Main Content Area -->
+                <Grid Grid.Column="1" Margin="20">
+                    <ContentControl Content="{Binding CurrentView}"/>
+                </Grid>
+            </Grid>
+            
+            <!-- StatusBar -->
+            <StatusBar Grid.Row="2" Background="#F5F5F5">
+                <StatusBarItem>
+                    <TextBlock Text="就绪" Margin="10,0"/>
+                </StatusBarItem>
+                <Separator/>
+                <StatusBarItem HorizontalAlignment="Right">
+                    <TextBlock Text="{Binding CurrentUser.UserName}" Margin="10,0"/>
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </md:DialogHost>
+</Window>

@@ -18,6 +18,185 @@
           "buildTransitive/CommunityToolkit.Mvvm.targets": {}
         }
       },
+      "MaterialDesignColors/5.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows7.0/MaterialDesignColors.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MaterialDesignColors.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MaterialDesignThemes/5.3.0": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "5.3.0",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.77"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ],
+        "contentFiles": {
+          "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-Bold.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-BoldItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-Italic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-Regular.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Black.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-BlackItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Bold.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-BoldItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Italic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Light.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-LightItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Medium.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-MediumItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Regular.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Thin.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-ThinItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Bold.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-BoldItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Italic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Light.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-LightItalic.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Regular.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.Internal/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.6.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "10.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/10.0.1": {
         "type": "package",
         "dependencies": {
@@ -53,10 +232,36 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "System.Memory/4.6.3": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
       "TT_PPID_CS.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "10.0.1",
           "TT_PPID_CS.Domain": "1.0.0"
         },
         "compile": {
@@ -135,6 +340,163 @@
         "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
       ]
     },
+    "MaterialDesignColors/5.3.0": {
+      "sha512": "2+gcPqbWB3f9vvpCXb7SMhObt9aYSIIIkycYjnctnq4smAfzflwTcMQbG3UjiUYKoTbAy4+RXO0tugLX33YhiA==",
+      "type": "package",
+      "path": "materialdesigncolors/5.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "MaterialDesign.Icon.png",
+        "README.md",
+        "lib/net462/MaterialDesignColors.dll",
+        "lib/net8.0-windows7.0/MaterialDesignColors.dll",
+        "materialdesigncolors.5.3.0.nupkg.sha512",
+        "materialdesigncolors.nuspec"
+      ]
+    },
+    "MaterialDesignThemes/5.3.0": {
+      "sha512": "jIKeR2JzUGslVn2EU5bvAXj4EJpw3wf289VsTf0evtg/czFIomPswqBGfpO7In67rpFwQzR+E+/df/Q9i43a0Q==",
+      "type": "package",
+      "path": "materialdesignthemes/5.3.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "MaterialDesign.Icon.png",
+        "README.md",
+        "build/MaterialDesignThemes.targets",
+        "build/Resources/Roboto/Roboto-Black.ttf",
+        "build/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "build/Resources/Roboto/Roboto-Bold.ttf",
+        "build/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "build/Resources/Roboto/Roboto-Italic.ttf",
+        "build/Resources/Roboto/Roboto-Light.ttf",
+        "build/Resources/Roboto/Roboto-LightItalic.ttf",
+        "build/Resources/Roboto/Roboto-Medium.ttf",
+        "build/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "build/Resources/Roboto/Roboto-Regular.ttf",
+        "build/Resources/Roboto/Roboto-Thin.ttf",
+        "build/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "build/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "build/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "content/Resources/Noto/NotoSans-Bold.ttf",
+        "content/Resources/Noto/NotoSans-BoldItalic.ttf",
+        "content/Resources/Noto/NotoSans-Italic.ttf",
+        "content/Resources/Noto/NotoSans-Regular.ttf",
+        "content/Resources/Roboto/Roboto-Black.ttf",
+        "content/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "content/Resources/Roboto/Roboto-Bold.ttf",
+        "content/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "content/Resources/Roboto/Roboto-Italic.ttf",
+        "content/Resources/Roboto/Roboto-Light.ttf",
+        "content/Resources/Roboto/Roboto-LightItalic.ttf",
+        "content/Resources/Roboto/Roboto-Medium.ttf",
+        "content/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "content/Resources/Roboto/Roboto-Regular.ttf",
+        "content/Resources/Roboto/Roboto-Thin.ttf",
+        "content/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "content/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "content/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "content/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "content/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "content/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "content/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "contentFiles/any/net462/Resources/Noto/NotoSans-Bold.ttf",
+        "contentFiles/any/net462/Resources/Noto/NotoSans-BoldItalic.ttf",
+        "contentFiles/any/net462/Resources/Noto/NotoSans-Italic.ttf",
+        "contentFiles/any/net462/Resources/Noto/NotoSans-Regular.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-Black.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-Bold.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-Italic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-Light.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-LightItalic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-Medium.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-Regular.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-Thin.ttf",
+        "contentFiles/any/net462/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "contentFiles/any/net462/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "contentFiles/any/net462/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "contentFiles/any/net462/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-Bold.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-BoldItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-Italic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Noto/NotoSans-Regular.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Black.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Bold.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Italic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Light.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-LightItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Medium.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Regular.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-Thin.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "contentFiles/any/net8.0-windows7.0/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "lib/net462/MaterialDesignThemes.Wpf.dll",
+        "lib/net462/MaterialDesignThemes.Wpf.xml",
+        "lib/net8.0-windows7.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net8.0-windows7.0/MaterialDesignThemes.Wpf.xml",
+        "materialdesignthemes.5.3.0.nupkg.sha512",
+        "materialdesignthemes.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Cryptography.Internal/10.0.1": {
+      "sha512": "HS6Lvw5qfzOXuKcBvNNxn8YNjGalYq8SwmqkuzkFxSm0lC6i1ILfaZg68Vyphk2Mkj4xXeMiua8MWS9UWfxpuw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.cryptography.internal/10.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "microsoft.aspnetcore.cryptography.internal.10.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.internal.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/10.0.1": {
+      "sha512": "eYaBTmzVZA1unTf3wORLSXH7qsfdwvxuUSus1Na7DUM8pu96o7CusWI8Fmp8NZ39lg8aIaxDgnrgNId8eZMqBA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.cryptography.keyderivation/10.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "microsoft.aspnetcore.cryptography.keyderivation.10.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
+      ]
+    },
     "Microsoft.Extensions.DependencyInjection/10.0.1": {
       "sha512": "zerXV0GAR9LCSXoSIApbWn+Dq1/T+6vbXMHGduq1LoVQRHT0BXsGQEau0jeLUBUcsoF/NaUT8ADPu8b+eNcIyg==",
       "type": "package",
@@ -197,6 +559,49 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
+      "sha512": "MCu674ZETgU18EbxfwIlRpUPJ02YbZenLsMCXTkpeA7KUBpXfFaOUDlEO+7UWu5AFnUoydg+aQENJkuaZPheMQ==",
+      "type": "package",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.77",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Design/Microsoft.Xaml.Behaviors.Design.dll",
+        "lib/net462/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/net462/Microsoft.Xaml.Behaviors.dll",
+        "lib/net462/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net462/Microsoft.Xaml.Behaviors.xml",
+        "lib/net6.0-windows7.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll",
+        "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.xml",
+        "microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512",
+        "microsoft.xaml.behaviors.wpf.nuspec",
+        "tools/Install.ps1"
+      ]
+    },
+    "System.Memory/4.6.3": {
+      "sha512": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A==",
+      "type": "package",
+      "path": "system.memory/4.6.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "buildTransitive/net461/System.Memory.targets",
+        "buildTransitive/net462/_._",
+        "lib/net462/System.Memory.dll",
+        "lib/net462/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "lib/netstandard2.1/_._",
+        "system.memory.4.6.3.nupkg.sha512",
+        "system.memory.nuspec"
+      ]
+    },
     "TT_PPID_CS.Application/1.0.0": {
       "type": "project",
       "path": "../TT_PPID_CS.Application/TT_PPID_CS.Application.csproj",
@@ -216,6 +621,7 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "CommunityToolkit.Mvvm >= 8.4.0",
+      "MaterialDesignThemes >= 5.3.0",
       "Microsoft.Extensions.DependencyInjection >= 10.0.1",
       "TT_PPID_CS.Application >= 1.0.0",
       "TT_PPID_CS.Infrastructure >= 1.0.0"
@@ -282,6 +688,10 @@
           "CommunityToolkit.Mvvm": {
             "target": "Package",
             "version": "[8.4.0, )"
+          },
+          "MaterialDesignThemes": {
+            "target": "Package",
+            "version": "[5.3.0, )"
           },
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",

@@ -1,0 +1,2 @@
+﻿Id,PPID,SerialNumber,Model,PN,Status,InUseDays,CorruptedAttempts,LastUsedTime,Notes,CreateTime,UpdateTime,CreateUser,UpdateUser,IsDeleted
+5,CN012345GT0005AB0000A00,,Latitude 5410,3NGP6,Idle,0,0,,helloworld,2025-12-30T14:10:47.483000,2025-12-30T14:10:47.483000,admin,,False

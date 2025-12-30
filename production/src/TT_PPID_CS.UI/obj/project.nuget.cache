@@ -1,12 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "sBK4CKZBH2A=",
+  "dgSpecHash": "kpUQ7oQRnug=",
   "success": true,
   "projectFilePath": "E:\\OneDrive - TG Electronic\\Repositories\\TT-Factory-Control-System\\production\\src\\TT_PPID_CS.UI\\TT_PPID_CS.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andy\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
+    "C:\\Users\\Andy\\.nuget\\packages\\materialdesigncolors\\5.3.0\\materialdesigncolors.5.3.0.nupkg.sha512",
+    "C:\\Users\\Andy\\.nuget\\packages\\materialdesignthemes\\5.3.0\\materialdesignthemes.5.3.0.nupkg.sha512",
+    "C:\\Users\\Andy\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\10.0.1\\microsoft.aspnetcore.cryptography.internal.10.0.1.nupkg.sha512",
+    "C:\\Users\\Andy\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\10.0.1\\microsoft.aspnetcore.cryptography.keyderivation.10.0.1.nupkg.sha512",
     "C:\\Users\\Andy\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.1\\microsoft.extensions.dependencyinjection.10.0.1.nupkg.sha512",
-    "C:\\Users\\Andy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.1\\microsoft.extensions.dependencyinjection.abstractions.10.0.1.nupkg.sha512"
+    "C:\\Users\\Andy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.1\\microsoft.extensions.dependencyinjection.abstractions.10.0.1.nupkg.sha512",
+    "C:\\Users\\Andy\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.77\\microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512",
+    "C:\\Users\\Andy\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512"
   ],
   "logs": []
 }

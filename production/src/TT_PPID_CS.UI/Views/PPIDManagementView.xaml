@@ -1,0 +1,84 @@
+<UserControl x:Class="TT_PPID_CS.UI.Views.PPIDManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Search & Toolbar -->
+        <Border Grid.Row="0" Padding="10" BorderThickness="0,0,0,1" BorderBrush="#EEEEEE">
+            <DockPanel LastChildFill="False">
+                <!-- Search -->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                    <ComboBox Width="120" Margin="0,0,10,0"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              md:HintAssist.Hint="搜索字段"
+                              ItemsSource="{Binding SearchFields}"
+                              SelectedItem="{Binding SelectedSearchField}"/>
+                    
+                    <TextBox Width="200" Margin="0,0,10,0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             md:HintAssist.Hint="关键词"
+                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.InputBindings>
+                            <!-- Requires Microsoft.Xaml.Behaviors.Wpf or just simpler binding -->
+                            <KeyBinding Key="Enter" Command="{Binding SearchCommand}"/>
+                        </TextBox.InputBindings>
+                    </TextBox>
+                    
+                    <Button Content="搜索" Command="{Binding SearchCommand}"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                </StackPanel>
+
+                <!-- Actions -->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                    <Button Content="刷新" Command="{Binding LoadDataCommand}" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="5,0"/>
+                    <Button Content="添加" Command="{Binding AddCommand}" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5,0"/>
+                    <Button Content="编辑" Command="{Binding EditCommand}" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="5,0"/>
+                    <Button Content="删除" Command="{Binding DeleteCommand}" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="5,0" Foreground="Red" BorderBrush="Red"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding PPIDRecords}"
+                  SelectedItem="{Binding SelectedRecord}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  Style="{StaticResource MaterialDesignDataGrid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+                <DataGridTextColumn Header="PPID" Binding="{Binding PPID}" Width="200"/>
+                <DataGridTextColumn Header="S/N" Binding="{Binding SerialNumber}" Width="120"/>
+                <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="100"/>
+                <DataGridTextColumn Header="PN" Binding="{Binding PN}" Width="100"/>
+                <DataGridTextColumn Header="状态" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="使用天数" Binding="{Binding InUseDays}" Width="80"/>
+                <DataGridTextColumn Header="失败次数" Binding="{Binding CorruptedAttempts}" Width="80"/>
+                <DataGridTextColumn Header="最后使用" Binding="{Binding LastUsedTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}}" Width="140"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding Notes}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock Text="{Binding PPIDRecords.Count, StringFormat='共 {0} 条记录'}"/>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                 <ProgressBar IsIndeterminate="True" Width="100" Height="10" 
+                              Visibility="{Binding IsBusy, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</UserControl>
