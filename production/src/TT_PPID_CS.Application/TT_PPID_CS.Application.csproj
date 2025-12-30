@@ -5,7 +5,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="10.0.1" />
+    <PackageReference Include="MiniExcel" Version="1.42.0" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,0 +1,20 @@
+﻿TT_PPID_CS.UI
+
+
+winexe
+C#
+.cs
+E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\obj\Debug\net8.0-windows\
+TT_PPID_CS.UI
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\App.xaml
+7-807894696
+22-633061264
+17862852883
+2371354472313
+Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\PPIDManagementView.xaml;Views\PPIDRecordDialog.xaml;Views\StatisticsView.xaml;Views\UserDialog.xaml;Views\UserManagementView.xaml;
+
+True
+

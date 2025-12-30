@@ -1,0 +1,16 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TT_PPID_CS.Domain -> E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.Domain\bin\Debug\net8.0\TT_PPID_CS.Domain.dll
+  TT_PPID_CS.Application -> E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.Application\bin\Debug\net8.0\TT_PPID_CS.Application.dll
+  TT_PPID_CS.Infrastructure -> E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.Infrastructure\bin\Debug\net8.0\TT_PPID_CS.Infrastructure.dll
+E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\App.xaml(8,72): error MC3072: The property 'AccentColor' does not exist in XML namespace 'http://materialdesigninxaml.net/winfx/xaml/themes'. Line 8 Position 72. [E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\TT_PPID_CS.UI.csproj]
+E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\Views\UserDialog.xaml(16,10): error MC3000: ''local' is an undeclared prefix. Line 16, position 10.' XML is not valid. [E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\TT_PPID_CS.UI.csproj]
+
+Build FAILED.
+
+E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\App.xaml(8,72): error MC3072: The property 'AccentColor' does not exist in XML namespace 'http://materialdesigninxaml.net/winfx/xaml/themes'. Line 8 Position 72. [E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\TT_PPID_CS.UI.csproj]
+E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\Views\UserDialog.xaml(16,10): error MC3000: ''local' is an undeclared prefix. Line 16, position 10.' XML is not valid. [E:\OneDrive - TG Electronic\Repositories\TT-Factory-Control-System\production\src\TT_PPID_CS.UI\TT_PPID_CS.UI.csproj]
+    0 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:04.45

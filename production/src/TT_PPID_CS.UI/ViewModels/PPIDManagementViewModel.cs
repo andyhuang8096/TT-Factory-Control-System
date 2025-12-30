@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using TT_PPID_CS.Application.DTOs;
 using TT_PPID_CS.Application.Interfaces;
+using TT_PPID_CS.UI.Views;
+using System;
 
 namespace TT_PPID_CS.UI.ViewModels
 {
@@ -103,23 +105,57 @@ namespace TT_PPID_CS.UI.ViewModels
             }
         }
         
-        // Add command placeholder
         [RelayCommand]
-        private void Add()
+        private async Task AddAsync()
         {
-            MessageBox.Show("添加功能将在下一步实现", "提示");
+            var vm = new PPIDRecordViewModel();
+            var dialog = new PPIDRecordDialog(vm);
+            
+            // 设置 Owner 为当前主窗口，需要获取当前激活的窗口或者通过某种方式传递
+            // 这里简单使用 Application.Current.MainWindow
+            dialog.Owner = Application.Current.MainWindow;
+
+            if (dialog.ShowDialog() == true)
+            {
+                try 
+                {
+                    await _ppidService.CreateAsync(vm.Record, _authService.CurrentUser?.UserName);
+                    await LoadDataAsync();
+                    MessageBox.Show("记录创建成功", "成功", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show($"创建失败: {ex.Message}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
-        // Edit command placeholder
         [RelayCommand]
-        private void Edit()
+        private async Task EditAsync()
         {
              if (SelectedRecord == null)
             {
-                MessageBox.Show("请先选择一条记录", "提示");
+                MessageBox.Show("请先选择一条记录", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            MessageBox.Show($"编辑功能将在下一步实现 (ID: {SelectedRecord.Id})", "提示");
+             
+             var vm = new PPIDRecordViewModel(SelectedRecord);
+             var dialog = new PPIDRecordDialog(vm);
+             dialog.Owner = Application.Current.MainWindow;
+             
+             if (dialog.ShowDialog() == true)
+             {
+                 try
+                 {
+                     await _ppidService.UpdateAsync(vm.Record, _authService.CurrentUser?.UserName);
+                     await LoadDataAsync();
+                     MessageBox.Show("记录更新成功", "成功", MessageBoxButton.OK, MessageBoxImage.Information);
+                 }
+                 catch(Exception ex)
+                 {
+                     MessageBox.Show($"更新失败: {ex.Message}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+                 }
+             }
         }
     }
 }

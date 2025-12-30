@@ -21,10 +21,10 @@
                 <DockPanel>
                     <TextBlock VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Text="TT_PPID_CS 系统"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="刷新" Margin="5,0"/>
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="添加" Margin="5,0"/>
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="导入" Margin="5,0"/>
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="备份" Margin="5,0"/>
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="刷新" Margin="5,0" Command="{Binding SwitchToPPIDViewCommand}"/>
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="添加" Margin="5,0" IsEnabled="False" ToolTip="请在下方视图操作"/>
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="导入" Margin="5,0" Command="{Binding ImportCommand}"/>
+                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="备份" Margin="5,0" Command="{Binding BackupCommand}"/>
                     </StackPanel>
                 </DockPanel>
             </md:ColorZone>
@@ -38,12 +38,12 @@
                 
                 <!-- Sidebar -->
                 <Border BorderBrush="#EEEEEE" BorderThickness="0,0,1,0">
-                    <ListBox Margin="0,10">
-                        <ListBoxItem Content="PPID 记录" IsSelected="True"/>
-                        <ListBoxItem Content="用户管理"/>
-                        <ListBoxItem Content="导入日志"/>
-                        <ListBoxItem Content="备份管理"/>
-                        <ListBoxItem Content="审计详情"/>
+                    <ListBox Margin="0,10" SelectedValuePath="Tag" SelectedValue="{Binding SelectedMenu}">
+                        <ListBoxItem Content="PPID 记录" Tag="PPID"/>
+                        <ListBoxItem Content="用户管理" Tag="User"/>
+                        <ListBoxItem Content="导入日志" Tag="Import"/>
+                        <ListBoxItem Content="备份管理" Tag="Backup"/>
+                        <ListBoxItem Content="审计详情" Tag="Audit"/>
                     </ListBox>
                 </Border>
                 
