@@ -7,11 +7,12 @@ from typing import Optional
 from PyQt6.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget,
     QTableWidgetItem, QMenuBar, QMenu, QToolBar, QStatusBar, QLabel,
-    QMessageBox, QPushButton, QSplitter, QComboBox
+    QMessageBox, QPushButton, QSplitter, QComboBox, QLineEdit
 )
 from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QAction, QIcon
 import logging
+from datetime import datetime
 
 from src.core.config.config_manager import ConfigManager
 from src.core.database.connection import DatabaseConnection
@@ -19,7 +20,9 @@ from src.core.database import DatabaseConnectionFactory
 from src.core.security import Authentication, Permissions
 from src.features.crud import CRUDOperations
 from src.ui.widgets import DataTableWidget
-from src.ui.dialogs import LoginDialog
+from src.features.crud import CRUDOperations
+from src.ui.widgets import DataTableWidget
+from src.ui.dialogs import LoginDialog, RecordDialog, ImportDialog
 
 logger = logging.getLogger(__name__)
 
@@ -212,14 +215,42 @@ class MainWindow(QMainWindow):
     
     def _create_data_table(self) -> None:
         """创建数据表格。"""
-        # 创建表选择下拉框
+        # 创建表选择下拉框和搜索栏
         table_layout = QHBoxLayout()
+        
+        # 表选择
         table_label = QLabel("选择表:")
         self.table_combo = QComboBox()
+        self.table_combo.setMinimumWidth(150)
         self.table_combo.currentTextChanged.connect(self._on_table_changed)
         table_layout.addWidget(table_label)
         table_layout.addWidget(self.table_combo)
+        
         table_layout.addStretch()
+        
+        # 搜索栏
+        search_label = QLabel("搜索:")
+        self.search_field_combo = QComboBox()
+        self.search_field_combo.setPlaceholderText("选择字段")
+        self.search_field_combo.setMinimumWidth(120)
+        
+        self.search_input = QLineEdit()
+        self.search_input.setPlaceholderText("输入关键词...")
+        self.search_input.setFixedWidth(200)
+        self.search_input.returnPressed.connect(self._search_data)
+        
+        search_btn = QPushButton("搜索")
+        search_btn.clicked.connect(self._search_data)
+        
+        reset_btn = QPushButton("重置")
+        reset_btn.clicked.connect(self._refresh_data)
+        
+        table_layout.addWidget(search_label)
+        table_layout.addWidget(self.search_field_combo)
+        table_layout.addWidget(self.search_input)
+        table_layout.addWidget(search_btn)
+        table_layout.addWidget(reset_btn)
+        
         self.main_layout.addLayout(table_layout)
         
         # 创建数据表格
@@ -327,11 +358,51 @@ class MainWindow(QMainWindow):
             self.table.load_data(table_name, data)
             
             self.status_label.setText(f"已加载 {len(data)} 条记录")
+            
+            # 更新搜索字段列表
+            self.search_field_combo.clear()
+            if data and len(data) > 0:
+                columns = list(data[0].keys())
+                self.search_field_combo.addItems(columns)
+                # 默认选择第一个看起来像名称的字段，或者 Id
+                for col in ['Name', 'UserName', 'Title', 'Id']:
+                    index = self.search_field_combo.findText(col)
+                    if index >= 0:
+                        self.search_field_combo.setCurrentIndex(index)
+                        break
         
         except Exception as e:
             QMessageBox.critical(self, "错误", f"加载数据失败: {e}")
             logger.error(f"加载数据失败: {table_name}", exc_info=True)
             self.status_label.setText("加载数据失败")
+
+    def _search_data(self) -> None:
+        """搜索数据。"""
+        if not self.crud:
+            return
+            
+        table_name = self.current_table_name
+        if not table_name:
+            return
+            
+        search_field = self.search_field_combo.currentText()
+        search_value = self.search_input.text().strip()
+        
+        if not search_field:
+            return
+            
+        if not search_value:
+            self._refresh_data()
+            return
+            
+        try:
+            results = self.crud.read.search(table_name, search_field, search_value)
+            self.table.load_data(table_name, results)
+            self.status_label.setText(f"搜索结果: {len(results)} 条记录")
+            
+        except Exception as e:
+            QMessageBox.critical(self, "错误", f"搜索失败: {e}")
+            logger.error(f"搜索失败: {e}", exc_info=True)
     
     def _refresh_data(self) -> None:
         """刷新数据表格。"""
@@ -345,6 +416,7 @@ class MainWindow(QMainWindow):
         
         try:
             self._load_table_data(self.current_table_name)
+            self.search_input.clear()  # 清空搜索框
             self.status_label.setText("数据已刷新")
         
         except Exception as e:
@@ -353,11 +425,72 @@ class MainWindow(QMainWindow):
     
     def _add_record(self) -> None:
         """添加记录。"""
-        QMessageBox.information(self, "信息", "添加记录功能待实现")
+        if not self.table_widget.current_table:
+            QMessageBox.warning(self, "警告", "请先选择一个数据表")
+            return
+        
+        table_name = self.table_widget.current_table
+        
+        dialog = RecordDialog(
+            db_connection=self.config.db_connection,
+            table_name=table_name,
+            user=self.auth.current_user,
+            parent=self
+        )
+        
+        if dialog.exec():
+            # 刷新数据
+            self._refresh_data()
     
     def _edit_record(self) -> None:
         """编辑记录。"""
-        QMessageBox.information(self, "信息", "编辑记录功能待实现")
+        if not self.table_widget.current_table:
+            QMessageBox.warning(self, "警告", "请先选择一个数据表")
+            return
+        
+        # 获取选中的记录
+        selected_row = self.table_widget.currentRow()
+        if selected_row < 0:
+            QMessageBox.warning(self, "警告", "请先选择要编辑的记录")
+            return
+            
+        # 获取记录ID（假设第一列是Id）
+        try:
+            record_id_item = self.table_widget.item(selected_row, 0)
+            if not record_id_item:
+                return
+            record_id = int(record_id_item.text())
+        except (ValueError, TypeError):
+            QMessageBox.warning(self, "错误", "无法获取记录ID")
+            return
+            
+        table_name = self.table_widget.current_table
+        
+        # 获取完整记录数据
+        try:
+            crud = CRUDOperations(self.config.db_connection)
+            record_data = crud.read.get_by_id(table_name, record_id)
+            
+            if not record_data:
+                QMessageBox.warning(self, "错误", "记录不存在或已被删除")
+                self._refresh_data()
+                return
+                
+            dialog = RecordDialog(
+                db_connection=self.config.db_connection,
+                table_name=table_name,
+                record_data=record_data,
+                user=self.auth.current_user,
+                parent=self
+            )
+            
+            if dialog.exec():
+                # 刷新数据
+                self._refresh_data()
+                
+        except Exception as e:
+            logger.error(f"准备编辑记录失败: {e}", exc_info=True)
+            QMessageBox.critical(self, "错误", f"操作失败: {e}")
     
     def _delete_record(self) -> None:
         """删除记录。"""
@@ -404,7 +537,17 @@ class MainWindow(QMainWindow):
     
     def _import_data(self) -> None:
         """导入数据。"""
-        QMessageBox.information(self, "信息", "导入数据功能待实现")
+        dialog = ImportDialog(
+            db_connection=self.config.db_connection,
+            config=self.config,
+            current_table=self.table_widget.current_table,
+            user=self.auth.current_user,
+            parent=self
+        )
+        
+        if dialog.exec():
+            # 刷新显示
+            self._refresh_data()
     
     def _export_data(self) -> None:
         """导出数据。"""
@@ -453,11 +596,92 @@ class MainWindow(QMainWindow):
     
     def _backup_database(self) -> None:
         """备份数据库。"""
-        QMessageBox.information(self, "信息", "备份数据库功能待实现")
+        try:
+            from src.features.backup import DatabaseBackup
+            from PyQt6.QtWidgets import QFileDialog
+            
+            # 选择保存路径
+            default_name = f"{self.config.db_database}_{datetime.now():%Y%m%d_%H%M%S}.bak"
+            file_path, _ = QFileDialog.getSaveFileName(
+                self,
+                "备份数据库",
+                default_name,
+                "SQL Server 备份文件 (*.bak)"
+            )
+            
+            if not file_path:
+                return
+            
+            backup = DatabaseBackup(self.db_connection)
+            
+            # 使用 wait cursor
+            from PyQt6.QtCore import Qt
+            from PyQt6.QtWidgets import QApplication
+            QApplication.setOverrideCursor(Qt.CursorShape.WaitCursor)
+            
+            try:
+                result = backup.backup(backup_path=file_path, user=self.auth.current_user)
+                
+                QMessageBox.information(
+                    self, 
+                    "成功", 
+                    f"数据库备份成功！\n文件大小: {result['file_size'] / 1024 / 1024:.2f} MB"
+                )
+            finally:
+                QApplication.restoreOverrideCursor()
+            
+        except Exception as e:
+            QMessageBox.critical(self, "错误", f"备份失败: {e}")
+            logger.error(f"备份失败: {e}", exc_info=True)
     
     def _restore_database(self) -> None:
         """恢复数据库。"""
-        QMessageBox.information(self, "信息", "恢复数据库功能待实现")
+        # 警告用户
+        reply = QMessageBox.warning(
+            self,
+            "危险操作",
+            "恢复数据库将覆盖当前所有数据且无法撤销！\n确定要继续吗？",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No
+        )
+        
+        if reply != QMessageBox.StandardButton.Yes:
+            return
+            
+        try:
+            from src.features.backup import DatabaseRestore
+            from PyQt6.QtWidgets import QFileDialog
+            
+            # 选择备份文件
+            file_path, _ = QFileDialog.getOpenFileName(
+                self,
+                "选择备份文件",
+                "",
+                "SQL Server 备份文件 (*.bak)"
+            )
+            
+            if not file_path:
+                return
+            
+            restore = DatabaseRestore(self.db_connection)
+            
+            # 使用 wait cursor
+            from PyQt6.QtCore import Qt
+            from PyQt6.QtWidgets import QApplication
+            QApplication.setOverrideCursor(Qt.CursorShape.WaitCursor)
+            
+            try:
+                success = restore.restore(backup_path=file_path, replace=True)
+                
+                if success:
+                    QMessageBox.information(self, "成功", "数据库恢复成功！\n系统将自动退出，请重启应用程序。")
+                    self.close()
+            finally:
+                QApplication.restoreOverrideCursor()
+            
+        except Exception as e:
+            QMessageBox.critical(self, "错误", f"恢复失败: {e}")
+            logger.error(f"恢复失败: {e}", exc_info=True)
     
     def _show_statistics(self) -> None:
         """显示统计信息。"""
