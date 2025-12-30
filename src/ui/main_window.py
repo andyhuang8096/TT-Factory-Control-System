@@ -425,16 +425,17 @@ class MainWindow(QMainWindow):
     
     def _add_record(self) -> None:
         """添加记录。"""
-        if not self.table_widget.current_table:
+        if not self.current_table_name:
             QMessageBox.warning(self, "警告", "请先选择一个数据表")
             return
         
-        table_name = self.table_widget.current_table
+        user_info = self.auth.get_current_user() if self.auth else None
+        username = user_info.get('UserName') if user_info else None
         
         dialog = RecordDialog(
-            db_connection=self.config.db_connection,
-            table_name=table_name,
-            user=self.auth.current_user,
+            db_connection=self.db_connection,
+            table_name=self.current_table_name,
+            user=username,
             parent=self
         )
         
@@ -444,43 +445,35 @@ class MainWindow(QMainWindow):
     
     def _edit_record(self) -> None:
         """编辑记录。"""
-        if not self.table_widget.current_table:
+        if not self.current_table_name:
             QMessageBox.warning(self, "警告", "请先选择一个数据表")
             return
         
-        # 获取选中的记录
-        selected_row = self.table_widget.currentRow()
-        if selected_row < 0:
+        # 获取选中的记录 ID
+        record_id = self.table.get_selected_record_id()
+        if not record_id:
             QMessageBox.warning(self, "警告", "请先选择要编辑的记录")
             return
             
-        # 获取记录ID（假设第一列是Id）
-        try:
-            record_id_item = self.table_widget.item(selected_row, 0)
-            if not record_id_item:
-                return
-            record_id = int(record_id_item.text())
-        except (ValueError, TypeError):
-            QMessageBox.warning(self, "错误", "无法获取记录ID")
-            return
-            
-        table_name = self.table_widget.current_table
+        table_name = self.current_table_name
         
         # 获取完整记录数据
         try:
-            crud = CRUDOperations(self.config.db_connection)
-            record_data = crud.read.get_by_id(table_name, record_id)
+            record_data = self.crud.read.get_by_id(table_name, record_id)
             
             if not record_data:
                 QMessageBox.warning(self, "错误", "记录不存在或已被删除")
                 self._refresh_data()
                 return
                 
+            user_info = self.auth.get_current_user() if self.auth else None
+            username = user_info.get('UserName') if user_info else None
+
             dialog = RecordDialog(
-                db_connection=self.config.db_connection,
+                db_connection=self.db_connection,
                 table_name=table_name,
                 record_data=record_data,
-                user=self.auth.current_user,
+                user=username,
                 parent=self
             )
             
@@ -537,11 +530,18 @@ class MainWindow(QMainWindow):
     
     def _import_data(self) -> None:
         """导入数据。"""
+        if not self.current_table_name:
+            QMessageBox.warning(self, "警告", "请先选择一个数据表")
+            return
+
+        user_info = self.auth.get_current_user() if self.auth else None
+        username = user_info.get('UserName') if user_info else None
+
         dialog = ImportDialog(
-            db_connection=self.config.db_connection,
+            db_connection=self.db_connection,
             config=self.config,
-            current_table=self.table_widget.current_table,
-            user=self.auth.current_user,
+            current_table=self.current_table_name,
+            user=username,
             parent=self
         )
         
