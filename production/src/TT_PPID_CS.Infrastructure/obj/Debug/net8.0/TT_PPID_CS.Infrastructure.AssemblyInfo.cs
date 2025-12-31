@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TT_PPID_CS.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+372cc39107cac560c208c41ce1d3d99322121aaa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00976bbb705103102fb0cd1dc673108bd825406e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TT_PPID_CS.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TT_PPID_CS.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

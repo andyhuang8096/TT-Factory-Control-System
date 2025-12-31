@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Input;
 using TT_PPID_CS.UI.ViewModels;
 
 namespace TT_PPID_CS.UI.Views
@@ -21,6 +22,15 @@ namespace TT_PPID_CS.UI.Views
             if (DataContext is LoginViewModel viewModel)
             {
                 viewModel.Password = ((System.Windows.Controls.PasswordBox)sender).Password;
+            }
+        }
+
+        // 窗口拖拽事件
+        private void Header_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
             }
         }
     }

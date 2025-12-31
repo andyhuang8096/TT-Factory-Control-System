@@ -43,15 +43,22 @@ namespace TT_PPID_CS.UI.ViewModels
             _serviceProvider = serviceProvider;
             CurrentUser = _authService.CurrentUser;
             
-            // 默认显示 PPID 管理界面
-            SwitchToPPIDView();
+            // 默认显示 PPID 管理界面 - 已移至 OnStartup 延迟调用
+            // SwitchToPPIDView();
         }
 
         [RelayCommand]
         private void SwitchToPPIDView()
         {
-            // 使用完全限定名以避免命名空间冲突
-            CurrentView = _serviceProvider.GetRequiredService<TT_PPID_CS.UI.Views.PPIDManagementView>();
+            try
+            {
+                // 使用完全限定名以避免命名空间冲突
+                CurrentView = _serviceProvider.GetRequiredService<TT_PPID_CS.UI.Views.PPIDManagementView>();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"加载 PPID 视图失败: {ex.Message}\n\n{ex.InnerException?.Message}", "错误", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+            }
         }
 
         [RelayCommand]

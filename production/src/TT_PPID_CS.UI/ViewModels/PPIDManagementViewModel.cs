@@ -113,7 +113,7 @@ namespace TT_PPID_CS.UI.ViewModels
             
             // 设置 Owner 为当前主窗口，需要获取当前激活的窗口或者通过某种方式传递
             // 这里简单使用 Application.Current.MainWindow
-            dialog.Owner = Application.Current.MainWindow;
+            dialog.Owner = System.Windows.Application.Current.MainWindow;
 
             if (dialog.ShowDialog() == true)
             {
@@ -141,7 +141,7 @@ namespace TT_PPID_CS.UI.ViewModels
              
              var vm = new PPIDRecordViewModel(SelectedRecord);
              var dialog = new PPIDRecordDialog(vm);
-             dialog.Owner = Application.Current.MainWindow;
+             dialog.Owner = System.Windows.Application.Current.MainWindow;
              
              if (dialog.ShowDialog() == true)
              {

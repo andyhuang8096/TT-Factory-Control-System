@@ -55,7 +55,7 @@ namespace TT_PPID_CS.UI.ViewModels
         {
             var vm = new UserViewModel();
             var dialog = new UserDialog(vm);
-            dialog.Owner = Application.Current.MainWindow;
+            dialog.Owner = System.Windows.Application.Current.MainWindow;
 
             if (dialog.ShowDialog() == true)
             {
@@ -83,7 +83,7 @@ namespace TT_PPID_CS.UI.ViewModels
             
             var vm = new UserViewModel(SelectedUser);
             var dialog = new UserDialog(vm);
-            dialog.Owner = Application.Current.MainWindow;
+            dialog.Owner = System.Windows.Application.Current.MainWindow;
 
             if (dialog.ShowDialog() == true)
             {

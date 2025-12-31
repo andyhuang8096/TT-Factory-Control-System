@@ -21,10 +21,10 @@
                 <DockPanel>
                     <TextBlock VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Text="TT_PPID_CS 系统"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="刷新" Margin="5,0" Command="{Binding SwitchToPPIDViewCommand}"/>
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="添加" Margin="5,0" IsEnabled="False" ToolTip="请在下方视图操作"/>
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="导入" Margin="5,0" Command="{Binding ImportCommand}"/>
-                        <Button Style="{StaticResource MaterialDesignFlatMidPrimaryButton}" Content="备份" Margin="5,0" Command="{Binding BackupCommand}"/>
+                        <Button Style="{StaticResource MaterialDesignFlatLightButton}" Content="刷新" Margin="5,0" Command="{Binding SwitchToPPIDViewCommand}"/>
+                        <Button Style="{StaticResource MaterialDesignFlatLightButton}" Content="添加" Margin="5,0" IsEnabled="False" ToolTip="请在下方视图操作"/>
+                        <Button Style="{StaticResource MaterialDesignFlatLightButton}" Content="导入" Margin="5,0" Command="{Binding ImportCommand}"/>
+                        <Button Style="{StaticResource MaterialDesignFlatLightButton}" Content="备份" Margin="5,0" Command="{Binding BackupCommand}"/>
                     </StackPanel>
                 </DockPanel>
             </md:ColorZone>
